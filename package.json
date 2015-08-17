@@ -1,0 +1,28 @@
+{
+  "name": "newmag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.0",
+    "mongodb": "^2.0.35",
+    "angular": "^1.4.1",
+    "body-parser": "^1.13.2",
+    "mongojs": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chigger85/NMsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chigger85/NMsite/issues"
+  },
+  "homepage": "https://github.com/chigger85/NMsite#readme"
+}
