@@ -1,0 +1,13 @@
+{
+  "name": "NewMag",
+  "version": "0.0.0",
+  "homepage": "https://github.com/chigger85/NMsite",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
