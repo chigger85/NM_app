@@ -77,10 +77,10 @@ myApp.controller('signupController', ['$scope', '$http', function($scope, $http)
     console.log("Hello World from controller");
 
 	var refresh = function(){
-	    $http.get('/userlist').success(function(response) {
+	    $http.get('/player').success(function(response) {
 
 	    	console.log("data received from request");
-	    	$scope.userlist = response;
+	    	$scope.player = response;
 	    	$scope.user = "";
 
 	    });
@@ -97,7 +97,7 @@ myApp.controller('signupController', ['$scope', '$http', function($scope, $http)
 
     	console.log($scope.user);
 
-    	$http.post('/userlist', $scope.user).success(function(response){
+    	$http.post('/player', $scope.user).success(function(response){
 
     		console.log(response);
     		refresh();
@@ -110,7 +110,7 @@ myApp.controller('signupController', ['$scope', '$http', function($scope, $http)
     $scope.remove = function(id) {
 
     	console.log(id);
-    	$http.delete('/userlist/'+ id).success(function(response) {
+    	$http.delete('/player/'+ id).success(function(response) {
 
     		refresh();
     	});
@@ -120,7 +120,7 @@ myApp.controller('signupController', ['$scope', '$http', function($scope, $http)
     $scope.edit = function(id) {
 
     	console.log(id);
-    	$http.get('/userlist/' + id).success(function(response) {
+    	$http.get('/player/' + id).success(function(response) {
     		$scope.user = response;
 
     	});
@@ -131,7 +131,7 @@ myApp.controller('signupController', ['$scope', '$http', function($scope, $http)
     $scope.update = function() {
 
     	console.log($scope.user._id);
-    	$http.put('/userlist/'+$scope.user._id, $scope.user).success(function(response) {
+    	$http.put('/player/'+$scope.user._id, $scope.user).success(function(response) {
 
     		refresh();
 

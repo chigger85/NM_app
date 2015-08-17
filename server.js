@@ -1,9 +1,11 @@
 var express = require('express'); 
 var app = express();
 var mongojs = require('mongojs');
-var db = mongojs('newmag', ['newmag']);
+// var db = mongojs('newmag', ['newmag ']);
 var bodyParser = require('body-parser');
 var path = require('path');
+var uri = "mongodb://SteveK:newmag1@ds033153.mongolab.com:33153/newmag"
+var db = mongojs(uri, ["player"]);
 
 //configure app
 
@@ -19,8 +21,8 @@ app.use(bodyParser.json());
 
 
 
-// //define routes
-// app.use(require("./routes/signup.js"));
+//define routes
+app.use(require("./routes/signup.js"));
 // app.use(require("./routes/index.js"));
 // app.use(require("./routes/news.js"));
 // app.use(require("./routes/teams.js"));
