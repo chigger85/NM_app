@@ -46,13 +46,14 @@ myApp.config(function($routeProvider) {
             templateUrl: 'pages/league.html',
             controller: "leagueController"
         });
+
     });
 
 
 // create the controller and inject Angular's $scope
 myApp.controller('mainController', function($scope) {
     // create a message to display in our view
-    $scope.message = 'Everyone come and see how good I look!';
+    $scope.message = "'We love bad pitches that's our fkin problem'";
 });
 
 myApp.controller('leagueController', function($scope) {
@@ -146,7 +147,7 @@ myApp.controller('signupController', ['$scope', '$http', function($scope, $http)
     }
 
 
-
-
 }]);
+
+
 
