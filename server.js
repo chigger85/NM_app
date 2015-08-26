@@ -16,13 +16,16 @@ app.set('public', path.join(__dirname, 'public'));
 
 
 //middleware
+
 app.use(express.static(__dirname + "/public")); //create public file to store static documents
 app.use(bodyParser.json());
 
 
 
-//define routes
-app.use(require("./routes/signup.js"));
+
+//define routes connecting to database
+app.use(require("./routes/signup.js"));	
+
 // app.use(require("./routes/index.js"));
 // app.use(require("./routes/news.js"));
 // app.use(require("./routes/teams.js"));
