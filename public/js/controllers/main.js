@@ -13,8 +13,8 @@ myApp.config(function($routeProvider) {
 
         // route for the about page
         .when('/signup', {
-            templateUrl : 'pages/signup.html',
-            controller  : 'signupController'
+            templateUrl : 'pages/signup2.html',
+            controller  : 'modalSignup'
         })
 
         // route for the contact page
@@ -58,8 +58,8 @@ myApp.config(function($routeProvider) {
 
         .when('/signup2', {
 
-            templateUrl: 'pages/signup2.html',
-            controller: "modalSignup"
+            templateUrl: 'pages/signup.html',
+            controller: "signupController"
 
         });
 

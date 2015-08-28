@@ -10,16 +10,25 @@
 
 </head>
 
-<body>
+<body ng-controller="modalSignup">
 
-<div ng-controller="modalSignup" class = "body">
 
-    <button type="button" class="btn btn-default" ng-click="open()">Sign up</button>
+        <div ng-show="selected" class = "modalCloseMessage">
 
-    <script type="text/ng-template" id="myModalContent.html">
+           <h2> {{ selected }} </h2>
+
+        </div>
+
+    
+
+    <div class = "body">
+
+    <button type="button" class="btn btn-default" ng-click="open_submit()" id = "signupButton" >Sign up</button>
+
+    <script type="text/ng-template" id="modalSubmitPlayer.html">
 
         <div class="modal-header">
-            <h3 class="modal-title">Sign up bitches!</h3>
+            <h3 class="modal-title">Sign up</h3>
         </div>
         <div class="modal-body">
             
@@ -88,15 +97,131 @@
         </div>
         <div class="modal-footer">
                     <tr>
-                        <td> <button class = "btn btn-primary" ng-click = "addUser()">Submit </button> </td>
+                        <td> <button class = "btn btn-primary" ng-click = "addUser(); ok()">Submit </button> </td>
                         <td> <button class = "btn btn-info" ng-click = "deselect()">Clear</button> </td>
+                        <td> <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button> <td>
                     </tr>
         </div>
     </script>
 
-    
-    
-</div>
+
+    <script type="text/ng-template" id="modalEditPlayer.html">
+
+        <div class="modal-header">
+            <h3 class="modal-title">Sign up</h3>
+        </div>
+        <div class="modal-body">
+            
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> Player Details </th>   
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td> User Name <input class = "form-control"  ng-model = "user.user_name"> 
+                    </tr>
+
+                    <tr>
+                        <td> First Name <input class = "form-control" ng-model = "user.first_name"> </td>
+                        <td> Surname <input class = "form-control" ng-model = "user.second_name"> </td>
+                        <td> DOB <input class = "form-control" type = "date" ng-model = "user.dob"> </td>
+
+
+                    </tr>
+
+                        <td> Position : 1st Choice
+                            <select ng-model="user.position1">
+                                <option value="GK">GK</option>
+                                <option value="FB">FB</option>
+                                <option value="CB">CB</option>
+                                <option value="MF">CMF </option>
+                                <option value="WMF">WMF</option>
+                                <option value="CF">CF</option>
+                            </select>
+
+                        </td>
+
+                        <td> Position : 2nd Choice
+                            <select ng-model="user.position2">
+                                <option value="GK">GK</option>
+                                <option value="FB">FB</option>
+                                <option value="CB">CB</option>
+                                <option value="MF">CMF </option>
+                                <option value="WMF">WMF</option>
+                                <option value="CF">CF</option>
+                            </select>
+
+                        </td>
+
+                    <tr>
+
+                        <td> Address <input class = "form-control" ng-model = "user.address"> </td>
+                    </tr>
+
+                    <tr>
+                        
+                        <td> Email <input class = "form-control" ng-model = "user.email"> </td>
+                        <td> Mobile <input class = "form-control" ng-model = "user.num"> </td>
+                    </tr>
+                    
+
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="modal-footer">
+                    <tr>
+                        <td> <button class = "btn btn-primary" ng-click = "update(); ok()"> Update </button> </td>
+                        <td> <button class = "btn btn-info" ng-click = "deselect()">Clear</button> </td>
+                        <td> <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button> </td>
+                        <td> <button class = "btn btn-danger" ng-click = "remove(user._id); ok()"> Remove </button> </td>
+                    </tr>
+        </div>
+    </script>
+
+        
+
+
+        <div ng-controller ='modalSignup' class="signup container" >
+
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> Squad </th>    
+                    </tr>
+                </thead>
+
+                <tbody>         
+
+                    <tr ng-repeat = "user in player">
+                        <td> {{user.user_name}}</td>
+                        <td> {{user.position1}}</td>
+                        <td> <span class="glyphicon glyphicon-user"></span> </td>
+                        <td>
+                            
+                            <button class = "btn btn-warning" ng-click = "edit(user._id); open_edit()"> Edit </button>
+                        </td>
+
+
+                    </tr>
+
+                <tbody>
+
+                
+            </table>
+
+        </div>
+
+
+
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script> 
     <script src = "bower_components/angular-bootstrap/ui-bootstrap-tpls.js"> </script>
@@ -104,7 +229,7 @@
      <!-- <script src = "js/controllers/main.js"></script> -->
     <script src = "js/controllers/ngsignup2.js"></script>
 
-</body>
+    </body>
 
    
 
