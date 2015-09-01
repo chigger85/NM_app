@@ -4,8 +4,10 @@ var mongojs = require('mongojs');
 // var db = mongojs('newmag', ['newmag ']);
 var bodyParser = require('body-parser');
 var path = require('path');
-var uri = "mongodb://SteveK:newmag1@ds033153.mongolab.com:33153/newmag"
-var db = mongojs(uri, ["player"]);
+var jwt = require('jsonwebtoken');
+var superSecret = 'manwhobuggeredaheron'
+	// var uri = "mongodb://SteveK:newmag1@ds033153.mongolab.com:33153/newmag"
+	// var db = mongojs(uri, ["player"]);
 
 //configure app
 

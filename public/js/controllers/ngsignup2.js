@@ -6,10 +6,10 @@ myApp.controller('modalSignup', ["$scope", "$modal", "$log","$http",  function (
   $scope.animationsEnabled = true;
 
   var refresh = function(){
-        $http.get('/player').success(function(response) {
+        $http.get('/user').success(function(response) {
 
             console.log("data received from request");
-            $scope.player = response;
+            $scope.users  = response;
             $scope.user = "";
 
         });
@@ -21,7 +21,7 @@ myApp.controller('modalSignup', ["$scope", "$modal", "$log","$http",  function (
   $scope.remove = function(id) {
 
         console.log(id);
-        $http.delete('/player/'+ id).success(function(response) {
+        $http.delete('/user/'+ id).success(function(response) {
 
             
         });
@@ -34,7 +34,7 @@ myApp.controller('modalSignup', ["$scope", "$modal", "$log","$http",  function (
   $scope.edit = function(id) {
 
         console.log(id);
-        $http.get('/player/' + id).success(function(response) {
+        $http.get('/user/' + id).success(function(response) {
             $scope.user = response;
 
 
@@ -126,7 +126,7 @@ myApp.controller('modalSubmitPlayer', ["$scope", "$modalInstance", "$http", "$ti
         console.log($scope.user);
         console.log($scope.added);
 
-        $http.post('/player', $scope.user).success(function(response){
+        $http.post('/user', $scope.user).success(function(response){
 
             console.log(response);
             $modalInstance.close(); 
@@ -173,7 +173,7 @@ myApp.controller('modalEditPlayer', ["$scope", "$modalInstance", "$http", "$time
     $scope.edit = function(id) {
 
         console.log(id);
-        $http.get('/player/' + id).success(function(response) {
+        $http.get('/user/' + id).success(function(response) {
             $scope.user = response;
 
         });
@@ -185,7 +185,7 @@ myApp.controller('modalEditPlayer', ["$scope", "$modalInstance", "$http", "$time
     $scope.update = function() {
 
         console.log($scope.user._id);
-        $http.put('/player/'+$scope.user._id, $scope.user).success(function(response) {
+        $http.put('/user/'+$scope.user._id, $scope.user).success(function(response) {
 
           
         console.log(response);
